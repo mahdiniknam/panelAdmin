@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 
@@ -23,3 +24,4 @@ Route::get('/', [Controller::class, 'index'])->name('index');
 Route::get('/users', [Controller::class, 'index'])->name('users');
 Route::get('/create', [Controller::class, 'create'])->name('create');
 Route::post('create', [Controller::class, 'store'])->name('store');
+Route::delete('/users/{user}', [Controller::class, 'destroy'])->name('destroy');

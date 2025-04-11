@@ -32,6 +32,13 @@ class Controller extends BaseController
             ]
         );
         return redirect()->route('users')
-            ->with('Add successfuly...');
+            ->with('success','Add successfuly...');
+    }
+
+    public function destroy($id){
+        $user=User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('users')
+->with('success','successfuly...');
     }
 }

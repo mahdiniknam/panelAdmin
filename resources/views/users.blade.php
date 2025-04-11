@@ -35,6 +35,13 @@
                       <td>{{$user->id}}</td>
                       <td>{{$user->name}}</td>
                       <td>{{$user->email}}</td>
+                      <td>
+                        <form action="{{route ('destroy',$user->id)}}" method="POST">
+                          @csrf
+                          @method('DELETE')
+                        <button type="submit" class="btn btn-default"><i class="far fa-trash-alt"></i> Delete</button>
+                        </form>
+                      </td>
                     </tr>
                     @endforeach
                   </tbody>
