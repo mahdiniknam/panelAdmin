@@ -16,12 +16,10 @@ use App\Http\Controllers\Controller;
 Route::get('/', function () {
     return view('master');
 });
-Route::get('panel', function () {
-    return view('panel');
-});
-// Route::get('create', function () {
-//     return view('master');
+// Route::get('panel', function () {
+//     return view('panel');
 // });
-
-Route::get('/users', [Controller::class, 'index']);
-//Route::get('create',[Controller::class,'create']);
+Route::get('/', [Controller::class, 'index'])->name('index');
+Route::get('/users', [Controller::class, 'index'])->name('users');
+Route::get('/create', [Controller::class, 'create'])->name('create');
+Route::post('create', [Controller::class, 'store'])->name('store');
