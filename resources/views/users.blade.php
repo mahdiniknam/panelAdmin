@@ -6,8 +6,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
-
+                <h3 class="card-title">Responsive Hover Table</h3><br>
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
                     <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
@@ -27,18 +26,17 @@
                     <tr>
                       <th>ID</th>
                       <th>User</th>
-                      <th>Date</th>
-                      <th>Action</th>
+                      <th>Email</th>
                     </tr>
                   </thead>
                   <tbody>
                     @foreach($users as $user)
-                    <td>{{$user->id}}</td>
-                    <td>{{$user->name}}</td>
-                    <td>{{$user->email}}</td>
+                    <tr>
+                      <td>{{$user->id}}</td>
+                      <td>{{$user->name}}</td>
+                      <td>{{$user->email}}</td>
+                    </tr>
                     @endforeach
-                  
-                   
                   </tbody>
                 </table>
               </div>

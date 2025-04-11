@@ -1,6 +1,6 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +19,9 @@ Route::get('/', function () {
 Route::get('panel', function () {
     return view('panel');
 });
-Route::get('users', function () {
-    return view('users');
-});
+// Route::get('create', function () {
+//     return view('master');
+// });
+
+Route::get('/users', [Controller::class, 'index']);
+//Route::get('create',[Controller::class,'create']);
