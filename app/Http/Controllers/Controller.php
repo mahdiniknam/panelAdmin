@@ -28,7 +28,7 @@ class Controller extends BaseController
             [
                 'name' => $request->name,
                 'email' => $request->email,
-                'password' => $request->password
+                'password' => bcrypt($request->password)
             ]
         );
         return redirect()->route('users')

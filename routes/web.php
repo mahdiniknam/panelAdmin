@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +30,14 @@ Route::post('create', [Controller::class, 'store'])->name('store');
 Route::delete('/users/{user}', [Controller::class, 'destroy'])->name('destroy');
 Route::put('/users/{user}', [Controller::class, 'update'])->name('update');
 Route::get('/users/{user}/edit', [Controller::class, 'edit'])->name('edit');
+
+Route::middleware('guest')->group(function(){
+    Route::post('login', [AuthController::class, 'doLogin'])->name('doLogin');
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('login',function(){
+        return view('showLogin');
+    });
+});
+
 
 
