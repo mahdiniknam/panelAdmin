@@ -32,13 +32,27 @@ class Controller extends BaseController
             ]
         );
         return redirect()->route('users')
-            ->with('success','Add successfuly...');
+            ->with('success', 'Add successfuly...');
     }
 
-    public function destroy($id){
-        $user=User::findOrFail($id);
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
         $user->delete();
         return redirect()->route('users')
-->with('success','successfuly...');
+            ->with('success', 'successfuly...');
+    }
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+        return view('edit', compact('user'));
+    }
+    public function update(Request $request, $id)
+    {
+
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+
+        return redirect()->route('users');
     }
 }

@@ -42,6 +42,10 @@
                         <button type="submit" class="btn btn-default"><i class="far fa-trash-alt"></i> Delete</button>
                         </form>
                       </td>
+                      <td>
+                        <a href="{{route('edit',$user->id)}}"><i class="fas fa-pencil-alt"></i></a>
+                      
+                      </td>
                     </tr>
                     @endforeach
                   </tbody>
