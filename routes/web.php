@@ -17,12 +17,14 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('master');
-});
+
 // Route::get('panel', function () {
 //     return view('panel');
 // });
+Route::middleware(['auth:web'])->group(function () {
+    Route::get('/home', function () {
+        return view('master');
+    });
 Route::get('/', [Controller::class, 'index'])->name('index');
 Route::get('/users', [Controller::class, 'index'])->name('users');
 Route::get('/create', [Controller::class, 'create'])->name('create');
@@ -30,9 +32,9 @@ Route::post('create', [Controller::class, 'store'])->name('store');
 Route::delete('/users/{user}', [Controller::class, 'destroy'])->name('destroy');
 Route::put('/users/{user}', [Controller::class, 'update'])->name('update');
 Route::get('/users/{user}/edit', [Controller::class, 'edit'])->name('edit');
-
+});
 Route::middleware('guest')->group(function(){
-    Route::post('login', [AuthController::class, 'doLogin'])->name('doLogin');
+    Route::post('login', [AuthController::class, 'doLogin'])->name('login');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('login',function(){
         return view('showLogin');
