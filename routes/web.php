@@ -31,12 +31,14 @@ Route::delete('/users/{user}', [Controller::class, 'destroy'])->name('destroy');
 Route::put('/users/{user}', [Controller::class, 'update'])->name('update');
 Route::get('/users/{user}/edit', [Controller::class, 'edit'])->name('edit');
 
+
 Route::middleware('guest')->group(function(){
     Route::post('login', [AuthController::class, 'doLogin'])->name('doLogin');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('login',function(){
         return view('showLogin');
-    });
+    })->name('page-login');
+    Route::get('log',[AuthController::class,'log'])->name('log');
 });
 
 
