@@ -46,6 +46,7 @@
                         <a href="{{route('edit',$user->id)}}"><i class="fas fa-pencil-alt"></i></a>
                       
                       </td>
+                      <td><a href="{{route('log',$user->id)}}"><i class="fas fa-pencil-alt"></i></a></td>
                     </tr>
                     @endforeach
                   </tbody>

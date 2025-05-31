@@ -22,10 +22,11 @@ class AuthController extends Controller
 
     
     public function logout(){
-        if(!Auth::check())
-        return redirect()->back();
-
-        Auth::logout();
-        return redirect()->to(route('login'));
+        if(Auth::check()){
+            Auth::logout();
+        }
+        // return redirect()->back();
+        
+        return redirect()->to(route('page-login'));
     }
 }
